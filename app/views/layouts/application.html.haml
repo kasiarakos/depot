@@ -2,9 +2,24 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Depot
+    %title Pragprog Books Online Store
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
-  %body
-    = yield
+  %body{class: controller.controller_name}
+  	%div{id: "banner"}
+  	  = image_tag("logo.png")
+  	  = @page_title || "Pragmatic Bookshelf"
+  	%div{id: "columns"}
+  		%div{id: "side"}
+  		  %ul
+  		  	%li
+  		  		= link_to "Home", "#"
+  		  	%li
+  		  		= link_to "Questions", "#"
+  		  	%li
+  		  		= link_to "News", "#"
+  		  	%li
+  		  		= link_to "Contact", "#"
+  		%div{id: "main"}
+    		= yield
