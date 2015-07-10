@@ -7,19 +7,21 @@
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body{class: controller.controller_name}
-  	%div{id: "banner"}
-  	  = image_tag("logo.png")
-  	  = @page_title || "Pragmatic Bookshelf"
-  	%div{id: "columns"}
-  		%div{id: "side"}
-  		  %ul
-  		  	%li
-  		  		= link_to "Home", "#"
-  		  	%li
-  		  		= link_to "Questions", "#"
-  		  	%li
-  		  		= link_to "News", "#"
-  		  	%li
-  		  		= link_to "Contact", "#"
-  		%div{id: "main"}
-    		= yield
+    %div{id: "banner"}
+      = image_tag("logo.png")
+      = @page_title || "Pragmatic Bookshelf"
+    %div{id: "columns"}
+      %div{id: "side"}
+        %ul
+          %li
+            = link_to "Home", "#"
+          %li
+            = link_to "Questions", "#"
+          %li
+            = link_to "News", "#"
+          %li
+            = link_to "Contact", "#"
+        %p
+          = Time.now().strftime("%d/%b/%Y  %H:%M:%S")
+      %div{id: "main"}
+        = yield
